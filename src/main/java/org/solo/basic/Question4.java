@@ -5,7 +5,7 @@ public class Question4 {
 
     public static void main(String[] args) {
         basicLogic();
-
+      //  proLogic();
     }
 
     public static void basicLogic(){
@@ -30,13 +30,29 @@ public class Question4 {
 
     public static void proLogic(){
 
+        String inputString = "Amardeep Singh Cheema";
+
+        int vowelCount = 0;
+        int consonantCount = 0;
+
+        // Convert the string to lowercase to simplify vowel checking
+        inputString = inputString.toLowerCase();
+
+        for (int i = 0; i < inputString.length(); i++) {
+            char ch = inputString.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    vowelCount++;
+                } else {
+                    consonantCount++;
+                }
+            }
+        }
+
+        System.out.println("Original String: " + inputString);
+        System.out.println("Number of Vowels: " + vowelCount);
+        System.out.println("Number of Consonants: " + consonantCount);
+
     }
 
-    public static boolean isVowels(){
-        return false;
-    }
-
-    public static boolean isConsonants(){
-        return true;
-    }
 }
