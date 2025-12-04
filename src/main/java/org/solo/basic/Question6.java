@@ -1,5 +1,7 @@
 package org.solo.basic;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 //Find first non-repeated character in a string
@@ -7,7 +9,8 @@ public class Question6 {
 
     public static void main(String[] args) {
         String name = "Amardeep Singh Cheema";
-        System.out.println(firstNonRepeatingCharBruteForceNaive(name.toLowerCase()));
+        //System.out.println(firstNonRepeatingCharBruteForceNaive(name.toLowerCase()));
+        System.out.println(firstNonRepeatingCharBruteForce(name.toLowerCase()));
     }
 
     //O(n2)
@@ -31,7 +34,20 @@ public class Question6 {
         return null;
     }
 
-    public static Character firstNonRepeatingCharBruteForce(){
+    public static Character firstNonRepeatingCharBruteForce(String name){
+        if(null==name || name.isEmpty()){
+            return null;
+        }
+        Map<Character,Integer> frequency = new HashMap<>();
+        for(int i=0;i<name.length();i++){
+            char character = name.charAt(i);
+            frequency.put(name.charAt(i),frequency.getOrDefault(character,0)+1);
+        }
+        for(Character c : name.toCharArray()){
+            if(frequency.get(c) == 1){
+                return c;
+            }
+        }
         return null;
     }
 }
